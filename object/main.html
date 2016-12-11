@@ -401,6 +401,7 @@
 				left: 0;
 				bottom: 0;
 				background-color: rgb(255,255,255);
+				z-index: 999;
 			}
 			.foot-box-item{
 				display: inline-block;
@@ -586,11 +587,31 @@
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 		mui.init();
-		mui.plusReady()
-				var slider = mui("#slider");	
+		mui.plusReady(function() {
+			var slider = mui("#slider");	
 				slider.slider({
 					interval: 2000
 				});
+		});	
+		var slider = mui("#slider");	
+			slider.slider({
+				interval: 2000
+			});
+		/*关闭首页加载页面*/
+		
+		/*拨打电话*/
+		
+		/*搜索框点击跳转*/
+		
+		/*AJAX请求参数*/
+		
+		/*十大平台点击*/
+		
+		/*八大服务点击*/
+		
+		/*底部导航栏点击*/
+		
+		
 		</script>
 	</body>
 
