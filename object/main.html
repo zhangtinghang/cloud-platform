@@ -5,13 +5,592 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no,email=no" name="format-detection">
+        <script type="text/javascript" src="../js/zoom/flexible.js" ></script>
+        <script type="text/javascript" src="../js/zoom/flexible_css.js" ></script>
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+		html,body{
+			background-color: rgb(250,250,250);
+		}
+			.clear{
+				clear: both;
+			}
+			.mui-bar{
+				height:0.925925rem;
+				position: relative;
+				background-color: rgb(90,162,232);
+			}
+			.bar-text{
+				position: absolute;
+				font-size: 0.5rem;
+				color: rgba(255,255,255,1);
+				top:0.092592rem;
+			}
+			.bar-search{
+				width: 5.037037rem !important;
+				margin:auto;
+			}
+			.bar-pic{
+				position: absolute;
+				top: 0.092592rem;
+				right: 0.87037rem;
+				width:0.481481rem;
+				height:0.453703rem;
+				background-image: url(../img/main/NaviBar_Icon_phone.png);
+				background-position: left top;
+				background-repeat: no-repeat;
+				background-size: 100%;
+			}
+			.mui-bar-nav~.mui-content {
+   				padding-top:0;
+			}
+			
+			.mui-content{
+				background-color: rgba(250,250,250,1);
+			}
+			
+			.platform-title > h3{
+				font-size: 0.5rem;
+				padding-top:0.296296rem;
+				padding-left:0.259259rem;
+			}
+			
+			.platform-title > p{
+				font-size: 0.333333rem;
+				padding-top: 0.185185rem;
+				padding-left: 0.259259rem;
+			}
+			.platform-box{
+				width: 100%;
+				overflow: hidden;
+			}
+			.platform-box1{
+				overflow: initial;
+				position: relative;
+				margin-top: 0.314814rem;
+				margin-left: 0.259259rem;
+			}
+			.box1-item1{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-image: url(../img/main/Panel_one_1.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.333333rem;
+				height:3.148148rem;
+			}
+			.box1-item2{
+				position: absolute;
+				top: 0;
+				left:3.333333rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_one_2.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box1-item3{
+				position: absolute;
+				top: 0;
+				left:6.388888rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_one_3.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box1-item4{
+				position: absolute;
+				top:1.574074rem;
+				left:3.333333rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_one_4.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box1-item5{
+				position: absolute;
+				top:1.574074rem;
+				left:6.388888rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_one_4.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}	
+			.box1-item1-pic{
+				margin:0 auto;
+				margin-top: 0.555555rem;
+				width:1.018518rem;
+				height:0.925925rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_information_interaction.png);			
+			}
+			.box1-item1-text{
+				margin-top:0.277777rem;
+				color: rgb(255,255,255);
+				font-size:0.333333rem;
+				text-align: center;
+				font-weight: 800;
+			}
+			.box1-item5-text{
+				display: inline-block;
+				color: rgb(255,255,255);
+				font-size: 0.277777rem;
+				margin-top:0.092592rem;
+				line-height:16px;
+				margin-left: 0.203703rem;
+			}
+			
+			.box1-item-text{
+				display: inline-block;
+				color: rgb(255,255,255);
+				font-size: 0.277777rem;
+				margin-top: 0.185185rem;
+				margin-left: 0.203703rem;
+			}
+			
+			.box1-item2-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_product_design.png);
+			}
+			
+			.box1-item3-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_results_docking.png);
+			}
+			
+			.box1-item4-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_department.png);
+			}
+			
+			.box1-item5-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_auto_service.png);
+			}
+			
+			.platform-box2{
+				height: 3.148148rem;
+				position: relative;
+				margin-top: 3.518518rem;
+				margin-left: 0.259259rem;
+			}
+			
+			.box2-item1{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-image: url(../img/main/Panel_two_1.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.333333rem;
+				height:3.148148rem;
+			}
+			.box2-item2{
+				position: absolute;
+				top: 0;
+				left:3.333333rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_two_2.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box2-item3{
+				position: absolute;
+				top: 0;
+				left:6.388888rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_two_3.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box2-item4{
+				position: absolute;
+				top:1.574074rem;
+				left:3.333333rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_two_4.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box2-item5{
+				position: absolute;
+				top:1.574074rem;
+				left:6.388888rem;
+				display: -webkit-flex; /* Safari */
+  				display: flex;
+				background-image: url(../img/main/Panel_two_5.png);
+				background-repeat: no-repeat;
+				background-size:100%;
+				width:3.064814rem;
+				height: 1.574074rem;
+			}
+			.box2-item1-pic{
+				margin:0 auto;
+				margin-top: 0.555555rem;
+				width:1.018518rem;
+				height:0.925925rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_external_exchange.png);			
+			}
+			.box2-item2-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_interior_design.png);
+			}
+			
+			.box2-item3-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_knowledge.png);
+			}
+			
+			.box2-item4-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_platform.png);
+			}
+			
+			.box2-item5-pic{
+				width: 0.694444rem;
+				height: 0.787037rem;
+				margin-top: 0.37037rem;
+				margin-left: 0.277777rem;
+				line-height:0;
+				background-size:contain;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-image:url(../img/main/Icon_process_technology.png);
+			}
+			
+			.server-box{
+				box-sizing: border-box;
+				line-height: 0;
+				width: 10rem;
+				height: 4.594rem;
+				background-position: initial initial;
+				background-repeat: initial initial;
+			}
+			.server-box1{
+				box-sizing: border-box;
+				line-height: 0;
+				margin-top: 0.481481rem;
+			}
+			.server-box2{
+				box-sizing: border-box;
+				line-height: 0;
+				margin-top:0.648148rem;
+			}
+			.server-box-item{
+				width:1.5rem;
+				display: inline-block;
+				margin-left: 0.833333rem;
+			}
+			.item1{
+				margin-left: 0.481481rem;
+			}
+			.server-box-item img{
+				width: 1.592592rem;				
+			}
+			.server-box-item p{
+				text-align: center;
+				margin-top: 0.185185rem;
+				color: #2e2e2e;
+				font-size: 0.333333rem;
+			}
+			
+			.information-box{
+				margin-top: 0.981481rem;
+				text-align: center;
+				margin-bottom:1.481481rem;
+			}
+			.information-box img{
+				display: inline-block;
+				width: 0.37037rem;
+				vertical-align:middle;
+			}
+			.information-box p{
+				padding: 0;
+				margin: 0;
+				display: inline-block;
+				vertical-align: middle;	
+				color: #2E2E2E;
+				font-size: 0.342592rem;
+			}
+			
+			.foot-box{
+				box-sizing: border-box;
+				line-height: 0;
+				width: 10rem;
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				background-color: rgb(255,255,255);
+			}
+			.foot-box-item{
+				display: inline-block;
+				width: 3.1rem;
+				text-align: center;
+				margin-top: 0.092592rem;
+			}
+			.foot-box-item img{
+				width: 0.555555rem;
+			}
+			.foot-box-item p{
+				margin-top:0.37037rem;
+				font-size: 0.351851rem;
+			}
+		</style>
 	</head>
 
 	<body>
+		<header class="mui-bar mui-bar-nav">
+			<p class="bar-text">首页</p>
+			<div class="bar-search"><input type="search" placeholder="搜索" lang="zh-CN"></div>
+			<div class="bar-pic"></div>
+		</header>
+		
+		<!--底部导航栏-->
+		<div class="foot-box">
+			<div class="foot-box-item">
+				<img src="../img/main/Menu_newspapar.png" />
+				<p>新闻</p>
+			</div>
+			<div class="foot-box-item">
+				<img src="../img/main/Mnue_home_page _light.png" />
+				<p>首页</p>
+			</div>
+			<div class="foot-box-item">
+				<img src="../img/main/Menu_help.png" />
+				<p>帮助</p>
+			</div>
+		</div>
+		
+		<div class="mui-content">
+			<!--轮播图-->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../img/main/Pic_Shuffing_figure_one.png">							
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/main/Pic_Shuffing_figure_one.png">							
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/main/Pic_Shuffing_figure_one.png">							
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../img/main/Pic_Shuffing_figure_one.png">							
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../img/main/Pic_Shuffing_figure_one.png">						
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-text-mid">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			
+			<!--十大平台-->
+			<div class="platform-title">
+				<h3>共性平台</h3>
+				<p>整合科技资源，提升创新能力</p>
+			</div>
+		<div class="platform-box">
+			<div class="platform-box1">
+				<div class="box1-item1">
+					<div class="box1-item1-pic"></div>
+					<div class="box1-item1-text">信息交互产品开发</br>服务平台</div>
+				</div>
+				<div class="box1-item2">
+					<div class="box1-item2-pic"></div>
+					<div class="box1-item-text">产品设计创新</br>研发体系平台</div>
+				</div>
+				<div class="box1-item3">
+					<div class="box1-item3-pic"></div>
+					<div class="box1-item-text">成果对接与转</br>化服务平台</div>
+				</div>
+				<div class="box1-item4">
+					<div class="box1-item4-pic"></div>
+					<div class="box1-item-text">工业设计基本</br>平台</div>
+				</div>
+				<div class="box1-item5">
+					<div class="box1-item5-pic"></div>
+					<div class="box1-item5-text">自动服务终端</br>的研究与应用</br>平台</div>
+				</div>	
+			</div>
+			<div class="platform-box2">
+				<div class="box2-item1">
+					<div class="box2-item1-pic"></div>
+					<div class="box1-item1-text">对外交流</br>合作平台</div>
+				</div>
+				<div class="box2-item2">
+					<div class="box2-item2-pic"></div>
+					<div class="box1-item-text">景观及室内设</br>计服务平台</div>
+				</div>
+				<div class="box2-item3">
+					<div class="box2-item3-pic"></div>
+					<div class="box1-item-text">知识产品法律</br>服务平台</div>
+				</div>
+				<div class="box2-item4">
+					<div class="box2-item4-pic"></div>
+					<div class="box1-item-text">纺织材料及研</br>发平台</div>
+				</div>
+				<div class="box2-item5">
+					<div class="box2-item5-pic"></div>
+					<div class="box1-item-text">加工技术信息</br>平台</div>
+				</div>		
+			</div>			
+			</div>
+	
+		<!--八大服务-->
+		<div class="platform-title">
+			<h3>查找服务</h3>
+			<p>专业系统的咨询服务</p>
+		</div>
+		<div class="server-box">
+			<div class="server-box1">
+				<div class="server-box-item item1">
+					<img src="../img/main/Icon_design.png" />
+					<p>研发设计</p>
+				</div>
+				<div class="server-box-item">
+					<img src="../img/main/Icon_innovate.png" />
+					<p>创业创新</p>
+				</div>
+				<div class="server-box-item">
+					<img src="../img/main/Icon_hatch.png" />
+					<p>创业创新</p>
+				</div>
+				<div class="server-box-item">
+					<img src="../img/main/Icon_transfer.png" />
+					<p>创业创新</p>
+				</div>
+			</div>
+			<div class="server-box2">
+				<div class="server-box-item item1">
+					<img src="../img/main/Icon_financial.png" />
+					<p>科技金融</p>
+				</div>
+				<div class="server-box-item">
+					<img src="../img/main/Icon_nursery.png" />
+					<p>创业苗圃</p>
+				</div>
+				<div class="server-box-item">
+					<img src="../img/main/Icon_park.png" />
+					<p>科技园区</p>
+				</div>
+				<div class="server-box-item">
+					<img src="../img/main/Icon_consult.png" />
+					<p>科技咨询</p>
+				</div>
+			</div>
+		</div>		
+		<!--链接信息-->
+		<div class="information-box">
+			<img src="../img/main/Icon_link.png" />
+			<p>www.xbsjzx.com</p>
+		</div>		
+	</div>
+	</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-			
+		mui.init();
+		mui.plusReady()
+				var slider = mui("#slider");	
+				slider.slider({
+					interval: 2000
+				});
 		</script>
 	</body>
 
