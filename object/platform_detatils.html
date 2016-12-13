@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			.mui-icon {
+				color: #00BFFF;
+				font-size: 1rem;
+			}
+			.mui-table-view-cell {
+				padding: 0.4rem .6rem;
+				font-size: 1rem;
+			}
+		</style>
+	</head>
+
+	<body>
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+				<ul id="list_1" class="mui-table-view">
+					<!--<li class="mui-table-view-cell">
+						<div class="mui-icon mui-icon-paperplane">第一个选项卡子项-1</div>
+					</li>-->
+				</ul>
+				</div>
+			</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+			var catapid = "391e5fe4-6964-480c-ba01-82f7db13fa96";
+			var page = 1;
+			var list_item1 = document.getElementById("list_1");
+			mui.init({
+				pullRefresh: {
+					container: "#pullrefresh",
+					down: {
+					    auto: true,//可选,默认false.自动下拉刷新一次
+						callback: function() {
+							pulldownRefresh(catapid);
+						}
+					},
+					up: {
+						callback: function() {
+							pullupGetMore(catapid);
+						}
+					}
+				}
+			});
+
+			mui.plusReady(function() {
+				//添加newId自定义事件监听
+				window.addEventListener('newsId', function(event) {
+					//获得事件参数
+					catapid = event.detail.catapid;
+					//根据id向服务器请求新闻详情
+					mui('#pullrefresh').pullRefresh({
+				        down: {
+					    auto: true,//可选,默认false.自动下拉刷新一次
+						callback: function() {
+							pulldownRefresh(catapid);
+						}
+					},
+					up: {
+						auto: false,
+						contentrefresh: '正在加载...',
+						contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容
+						callback: function() {
+							pullupGetMore(catapid);
+						}
+					}
+				
+				        });
+
+				});
+			});
+
+			/**
+			 * 设置三个参数
+			 * page用来额外数据的页数
+			 * totalPage是存储额外的数据一共有多少页
+			 * list用来存储列表项的外部容器
+			 */
+
+			function pulldownRefresh(catapid) { //下拉刷新函数
+				list_item1.innerHTML = '';
+				console.log(catapid + "下拉刷新");
+			setTimeout(function() {
+				if(plus.networkinfo.getCurrentType()==plus.networkinfo.CONNECTION_NONE){		
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+					return mui.toast("连接网络失败，请稍后再试");					
+				}
+				mui.ajax('http://www.xbsjzx.com/api/handler/getresourelist', {
+					type: 'get',
+					dataType: 'json',
+					data: 'catalogid=' + catapid + '&thispage=1',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						var data = JSON.stringify(data);
+						var dataobj = eval("(" + data + ")");
+						for(i = 0; i < dataobj.data.data.length; i++) {
+							var table = document.body.querySelector('.mui-table-view');
+							var li = document.createElement('li');
+							var select_pid = dataobj.data.data[i].pid;
+							li.id=select_pid;
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '<li class="mui-table-view-cell">' +
+								'<div class="mui-icon mui-icon-paperplane"></div>' + dataobj.data.data[i].name  +
+								'</li>';
+							table.appendChild(li);						
+						li.addEventListener('tap', function() {
+							console.log('这是点击列表的pid='+this.id)
+							mui.openWindow({
+								url: '../resource.html',
+								id: 'resource.html',
+								extras: {
+									select_pid: this.id,
+								}
+							})
+						});
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+					//异常处理；
+					mui.toast('获取数据失败：' + type);
+					console.log(type);
+				}
+				});
+					/**
+					 * 下拉刷新结束
+					 * http://dev.dcloud.net.cn/mui/pulldown/
+					 */
+					mui("#pullrefresh").pullRefresh().endPulldownToRefresh();
+					// 重置上拉刷新，以及页数
+					mui('#pullrefresh').pullRefresh().refresh(true);
+					page = 2;
+				}, 1500);
+			}
+
+			function pullupGetMore(catapid) { //上拉加载函数
+				console.log('上拉加载页数  '+page);
+				console.log(catapid + "上拉加载");
+				setTimeout(function() {
+					if(plus.networkinfo.getCurrentType()==plus.networkinfo.CONNECTION_NONE){		
+					mui("#pullrefresh").pullRefresh().endPullupToRefresh();
+					return mui.toast("连接网络失败，请稍后再试");					
+				}
+				mui.ajax('http://www.xbsjzx.com/api/handler/getresourelist', {
+					type: 'get',
+					dataType: 'json',
+					data: 'catalogid=' + catapid + '&thispage='+page,
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						var data = JSON.stringify(data);
+						var dataobj = eval("(" + data + ")");
+						if(!dataobj.data.data.length) {
+							mui("#pullrefresh").pullRefresh().endPullupToRefresh(true);
+							return;
+						}
+						
+						for(i = 0; i < dataobj.data.data.length; i++) {
+							var table = document.body.querySelector('.mui-table-view');
+							var li = document.createElement('li');
+							var select_pid = dataobj.data.data[i].pid;
+							li.id=select_pid;
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '<li class="mui-table-view-cell">' +
+								'<div class="mui-icon mui-icon-paperplane"></div>' + dataobj.data.data[i].name  +
+								'</li>';
+							table.appendChild(li);
+							
+							li.addEventListener('tap', function() {
+								console.log('这是点击列表的pid='+this.id)
+							mui.openWindow({
+								url: '../resource.html',
+								id: 'resource',
+								extras: {
+									select_pid: this.id,
+								}
+							})
+						});
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+					//异常处理；
+					mui.toast('获取数据失败：' + type);
+					console.log(type);
+				}
+				});
+				page++;
+					mui("#pullrefresh").pullRefresh().endPullupToRefresh();
+				}, 3000);
+			}
+			
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+
+		</script>
+	</body>
+
+</html>
