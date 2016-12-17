@@ -1,1 +1,313 @@
-null
+{
+  "object/server_detatils.html": {
+    "href": "object/server_detatils.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "img/View_design.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "object/feedback.html": {
+    "href": "object/feedback.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/feedback.css",
+      "js/mui.min.js",
+      "js/feedback.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "object/header_detatils.html": {
+    "href": "object/header_detatils.html",
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/shipei.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "object/resource.html": {
+    "href": "object/resource.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/resource.css",
+      "js/mui.min.js",
+      "img/Pic_Shuffing_figure_one.png",
+      "img/Icon_start.png",
+      "img/Icon_start_light.png",
+      "img/Icon_link.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "object/platform_detatils.html": {
+    "href": "object/platform_detatils.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/resource.html"
+    ],
+    "priority": 0
+  },
+  "object/Knowledge_platform.html": {
+    "href": "object/Knowledge_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/TextileMaterial_platform.html": {
+    "href": "object/TextileMaterial_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/AutomaticServer_platform.html": {
+    "href": "object/AutomaticServer_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/information_platform.html": {
+    "href": "object/information_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/cooperation_platform.html": {
+    "href": "object/cooperation_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/IndustrialDesign_platform.html": {
+    "href": "object/IndustrialDesign_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/news_detatil.html": {
+    "href": "object/news_detatil.html",
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/shipei.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "object/news_child.html": {
+    "href": "object/news_child.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/news_detatil.html"
+    ],
+    "priority": 0
+  },
+  "object/news.html": {
+    "href": "object/news.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "img/main/Pic_Shuffing_figure_one.png"
+    ],
+    "refer": [
+      "object/news_child.html"
+    ],
+    "priority": 0
+  },
+  "object/search.html": {
+    "href": "object/search.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "img/NaviBar_Icon_search.png"
+    ],
+    "refer": [
+      "object/resource.html",
+      "object/main.html"
+    ],
+    "priority": 0
+  },
+  "object/ProcessingTechnology_platform.html": {
+    "href": "object/ProcessingTechnology_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/landscapeDesign_platform.html": {
+    "href": "object/landscapeDesign_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/ResultsDocking_platform.html": {
+    "href": "object/ResultsDocking_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/productDesign_platform.html": {
+    "href": "object/productDesign_platform.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "css/webstyle.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "object/header_detatils.html",
+      "object/platform_detatils.html"
+    ],
+    "priority": 0
+  },
+  "object/main.html": {
+    "href": "object/main.html",
+    "resources": [
+      "js/zoom/flexible.js",
+      "js/zoom/flexible_css.js",
+      "css/mui.min.css",
+      "img/main/NaviBar_Icon_phone.png",
+      "img/main/Panel_one_1.png",
+      "img/main/Panel_one_2.png",
+      "img/main/Panel_one_3.png",
+      "img/main/Panel_one_4.png",
+      "img/main/Icon_information_interaction.png",
+      "img/main/Icon_product_design.png",
+      "img/main/Icon_results_docking.png",
+      "img/main/Icon_department.png",
+      "img/main/Icon_auto_service.png",
+      "img/main/Panel_two_1.png",
+      "img/main/Panel_two_2.png",
+      "img/main/Panel_two_3.png",
+      "img/main/Panel_two_4.png",
+      "img/main/Panel_two_5.png",
+      "img/main/Icon_external_exchange.png",
+      "img/main/Icon_interior_design.png",
+      "img/main/Icon_knowledge.png",
+      "img/main/Icon_platform.png",
+      "img/main/Icon_process_technology.png",
+      "js/mui.min.js",
+      "img/NaviBar_Icon_search.png",
+      "img/main/Menu_newspapar.png",
+      "img/main/Menu_help.png",
+      "img/main/Icon_link.png",
+      "img/main/Icon_design.png",
+      "img/main/Icon_innovate.png",
+      "img/main/Icon_hatch.png",
+      "img/main/Icon_transfer.png",
+      "img/main/Icon_financial.png",
+      "img/main/Icon_nursery.png",
+      "img/main/Icon_park.png",
+      "img/main/Icon_consult.png",
+      "img/main/Pic_Shuffing_figure_one.png"
+    ],
+    "refer": [
+      "object/server_detatils.html",
+      "object/feedback.html",
+      "object/Knowledge_platform.html",
+      "object/TextileMaterial_platform.html",
+      "object/AutomaticServer_platform.html",
+      "object/information_platform.html",
+      "object/cooperation_platform.html",
+      "object/IndustrialDesign_platform.html",
+      "object/news.html",
+      "object/search.html",
+      "object/ProcessingTechnology_platform.html",
+      "object/landscapeDesign_platform.html",
+      "object/ResultsDocking_platform.html",
+      "object/productDesign_platform.html"
+    ],
+    "priority": 0
+  }
+}
