@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--<style>
+			.mui-pull-top-pocket {
+    height: 80px;
+}
+		</style>-->
+	</head>
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+			<ul id="list_1" class="mui-table-view mui-table-view-chevron">
+				<!--<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="../img/wutu.png">
+						<div class="mui-media-body mui-ellipsis-2">
+							rewtertertwrtrytrrrrrrrrrrrrre
+						</div>
+					</a>
+				</li>-->
+			</ul>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+			var count = 1;
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						height:50,//可选,默认50.触发下拉刷新拖动距离,
+					    auto: true,//可选,默认false.自动下拉刷新一次
+					    contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+					    contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+					    contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+						callback: pulldownRefresh
+					},
+					up: {
+						height: 50, //可选,默认50.触发下拉刷新拖动距离,
+						auto: false, //可选,默认false.自动下拉刷新一次
+						contentdown: '下拉', //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+						contentover: '释放立即刷新', //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+						contentrefresh: '正在探索新数据....', //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+						contentnomore: '已经到底啦', //可选，请求完毕若没有更多数据时显示的提醒内容；
+						callback: pullupRefresh
+					}
+				}
+			});
+
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				var list_item1 = document.getElementById("list_1");
+				
+				setTimeout(function() {					
+					list_item1.innerHTML = '';
+					mui.ajax('http://www.xbsjzx.com/api/handler/getnewslist', {
+						type: 'get',
+						dataType: 'json',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							var data = JSON.stringify(data);
+							var dataobj = eval("(" + data + ")");
+							
+								
+							for(i = 0; i < dataobj.data.length; i++) {
+								var table = document.body.querySelector('.mui-table-view');
+								var li = document.createElement('li');
+								var imgs = dataobj.data[i].IsHasImage;
+								
+								
+								var select_pid = dataobj.data[i].PID;								
+								li.id = select_pid;
+								
+								li.className = 'mui-table-view-cell mui-media';
+								
+								if(imgs == 1){
+									li.innerHTML = '<a class="mui-navigate-right">' +
+									'<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">' +
+									'<div class="mui-media-body mui-ellipsis-2">' +
+									dataobj.data[i].Name + '</div>' + '</a>';
+								}
+								if(imgs == 0){
+									li.innerHTML = '<a class="mui-navigate-right">' +
+									'<img class="mui-media-object mui-pull-left" src="../img/wutu.png">' +
+									'<div class="mui-media-body mui-ellipsis-2">' +
+									dataobj.data[i].Name + '</div>' + '</a>';
+								}
+							
+								//下拉刷新，新纪录插到最前面；
+								table.appendChild(li);							
+								li.addEventListener('tap', function() {
+									mui.openWindow({
+										url: 'news_detatil.html',
+										id: 'news_detatil.html',
+										extras: {
+											select_pid: this.id
+										}
+									})
+								});
+							}
+						}
+					});
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+					// 重置上拉刷新，以及页数
+					mui("#pullrefresh").pullRefresh().enablePullupToRefresh();
+					count = 2;
+				}, 1500);
+			};
+
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((false)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					mui.ajax('http://www.xbsjzx.com/api/handler/getnewslist', {
+						type: 'get',
+						data:'thispage='+count,
+						dataType: 'json',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							var data = JSON.stringify(data);
+							var dataobj = eval("(" + data + ")");
+						if(!dataobj.data.length) {
+							mui("#pullrefresh").pullRefresh().endPullupToRefresh(true);
+							return;
+						}
+							for(i = 0; i < dataobj.data.length; i++) {
+								var table = document.body.querySelector('.mui-table-view');
+								var li = document.createElement('li');
+								var select_pid = dataobj.data[i].PID;
+								console.log('这是这条新闻的pid='+select_pid)
+								li.id = select_pid;
+								li.className = 'mui-table-view-cell mui-media';							
+								li.innerHTML = '<a class="mui-navigate-right">' +
+									'<img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">' +
+									'<div class="mui-media-body mui-ellipsis-2">' +
+									dataobj.data[i].Name + '</div>' + '</a>';
+								//下拉刷新，新纪录插到最前面；
+								table.appendChild(li);
+								mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+										
+									li.addEventListener('tap', function() {
+										
+									mui.openWindow({
+										url: 'xinwenxiangqing.html',
+										id: 'xinwenxiangqing.html',
+										extras: {
+											select_pid: this.id
+											}
+										})
+									});
+							}
+						}
+					});
+					count++;
+				}, 1500);
+			}
+
+			if(mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+		</script>
+	</body>
+
+</html>

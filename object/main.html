@@ -428,7 +428,7 @@
 		
 		<!--底部导航栏-->
 		<div class="foot-box">
-			<div class="foot-box-item">
+			<div class="foot-box-item" id="news">
 				<img src="../img/main/Menu_newspapar.png" />
 				<p>新闻</p>
 			</div>
@@ -436,7 +436,7 @@
 				<img src="../img/main/Mnue_home_page _light.png" />
 				<p>首页</p>
 			</div>
-			<div class="foot-box-item">
+			<div class="foot-box-item" id="help">
 				<img src="../img/main/Menu_help.png" />
 				<p>帮助</p>
 			</div>
@@ -489,45 +489,45 @@
 			</div>
 		<div class="platform-box">
 			<div class="platform-box1">
-				<div class="box1-item1">
+				<div class="box1-item1 btn_platform">
 					<div class="box1-item1-pic"></div>
 					<div class="box1-item1-text">信息交互产品开发</br>服务平台</div>
 				</div>
-				<div class="box1-item2">
+				<div class="box1-item2 btn_platform">
 					<div class="box1-item2-pic"></div>
 					<div class="box1-item-text">产品设计创新</br>研发体系平台</div>
 				</div>
-				<div class="box1-item3">
+				<div class="box1-item3 btn_platform">
 					<div class="box1-item3-pic"></div>
 					<div class="box1-item-text">成果对接与转</br>化服务平台</div>
 				</div>
-				<div class="box1-item4">
+				<div class="box1-item4 btn_platform">
 					<div class="box1-item4-pic"></div>
 					<div class="box1-item-text">工业设计基本</br>平台</div>
 				</div>
-				<div class="box1-item5">
+				<div class="box1-item5 btn_platform">
 					<div class="box1-item5-pic"></div>
 					<div class="box1-item5-text">自动服务终端</br>的研究与应用</br>平台</div>
 				</div>	
 			</div>
-			<div class="platform-box2">
+			<div class="platform-box2 btn_platform">
 				<div class="box2-item1">
 					<div class="box2-item1-pic"></div>
 					<div class="box1-item1-text">对外交流</br>合作平台</div>
 				</div>
-				<div class="box2-item2">
+				<div class="box2-item2 btn_platform">
 					<div class="box2-item2-pic"></div>
 					<div class="box1-item-text">景观及室内设</br>计服务平台</div>
 				</div>
-				<div class="box2-item3">
+				<div class="box2-item3 btn_platform">
 					<div class="box2-item3-pic"></div>
 					<div class="box1-item-text">知识产品法律</br>服务平台</div>
 				</div>
-				<div class="box2-item4">
+				<div class="box2-item4 btn_platform">
 					<div class="box2-item4-pic"></div>
 					<div class="box1-item-text">纺织材料及研</br>发平台</div>
 				</div>
-				<div class="box2-item5">
+				<div class="box2-item5 btn_platform">
 					<div class="box2-item5-pic"></div>
 					<div class="box1-item-text">加工技术信息</br>平台</div>
 				</div>		
@@ -541,37 +541,37 @@
 		</div>
 		<div class="server-box">
 			<div class="server-box1">
-				<div class="server-box-item item1">
+				<div class="server-box-item item1 server_btn">
 					<img src="../img/main/Icon_design.png" />
 					<p>研发设计</p>
 				</div>
-				<div class="server-box-item">
+				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_innovate.png" />
 					<p>创业创新</p>
 				</div>
-				<div class="server-box-item">
+				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_hatch.png" />
 					<p>创业创新</p>
 				</div>
-				<div class="server-box-item">
+				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_transfer.png" />
 					<p>创业创新</p>
 				</div>
 			</div>
 			<div class="server-box2">
-				<div class="server-box-item item1">
+				<div class="server-box-item item1 server_btn">
 					<img src="../img/main/Icon_financial.png" />
 					<p>科技金融</p>
 				</div>
-				<div class="server-box-item">
+				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_nursery.png" />
 					<p>创业苗圃</p>
 				</div>
-				<div class="server-box-item">
+				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_park.png" />
 					<p>科技园区</p>
 				</div>
-				<div class="server-box-item">
+				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_consult.png" />
 					<p>科技咨询</p>
 				</div>
@@ -586,32 +586,96 @@
 	</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-		mui.init();
+		mui.init({
+			preloadPages:[
+			    {
+			      url:'server_detatils.html',
+			      id:'server_detatils.html'
+			    },
+			    {
+			    	 url:'feedback.html',
+				    id:'feedback.html'
+			    }
+  			]
+		});
 		mui.plusReady(function() {
+			platformBtn();
+			serverBtn();
+			navBtn();
+		});	
 			var slider = mui("#slider");	
 				slider.slider({
 					interval: 2000
 				});
-		});	
-		var slider = mui("#slider");	
-			slider.slider({
-				interval: 2000
-			});
 		/*关闭首页加载页面*/
 		
 		/*拨打电话*/
 		
 		/*搜索框点击跳转*/
 		
-		/*AJAX请求参数*/
-		
 		/*十大平台点击*/
-		
+		function platformBtn(){
+			var btn_platform = document.getElementsByClassName('btn_platform');
+			pages = ['information_platform.html','productDesign_platform.html','','','','','','','','']
+			for(var i = 0; i<btn_platform.length;i++){
+				btn_platform[i].index = i;
+					btn_platform[i].addEventListener('tap', function() {
+					//打开详情页页面
+					console.log('点击了')
+				setTimeout(mui.openWindow({
+					url:pages[this.index],
+					waiting:{
+				      autoShow:false,//自动显示等待框，默认为true
+				      title:'正在加载...',//等待对话框上显示的提示内容
+				   	}
+					}),1000)			
+					});
+				}
+			}
 		/*八大服务点击*/
-		
+		function serverBtn(){
+			var server_btn = document.getElementsByClassName('server_btn');
+			var serverid = ["5c9c3cef-82c4-4026-a448-7e6b7c0d4ee8","1b9ca588-4ad7-4b7a-9495-74751249f1b7","c182439f-5f2c-4983-a3db-1615a3f7369e","2b69f570-995a-4edc-85e2-2d52efc28ed9","51b97838-5aaf-4c3f-be54-568a0f451770","d8ec79ac-b720-453e-b3b1-53dd6a9efa66","51aa1e9f-4bc0-4fac-a5f4-dbf19f2078bc","91ded924-7825-4f45-af47-b1df553a9718"];
+			for(var i = 0; i<server_btn.length;i++){
+				server_btn[i].index = i;
+				server_btn[i].addEventListener('tap', function(){
+				setTimeout(mui.openWindow({
+					url:'server_detatils.html',
+					 extras: {
+       					 serverid: serverid[this.index]
+   					}
+					}),1000)		
+					});
+				}
+			}
 		/*底部导航栏点击*/
-		
-		
+		function navBtn(){
+			var news = document.getElementById('news');
+			var help = document.getElementById('help');			
+			news.addEventListener('tap',function(){
+				var page = mui.preload({
+				    url:'news.html',
+				    id:'news.html'//默认使用当前页面的url作为id
+				});
+				setTimeout(mui.openWindow({
+					url:'news.html',
+					waiting:{
+				      autoShow:false,//自动显示等待框，默认为true
+				      title:'正在加载...',//等待对话框上显示的提示内容
+				   	}
+					}),1000)
+			});
+			
+			help.addEventListener('tap',function(){
+				setTimeout(mui.openWindow({
+					url:'feedback.html',
+					waiting:{
+				      autoShow:false,//自动显示等待框，默认为true
+				      title:'正在加载...',//等待对话框上显示的提示内容
+				   	}
+					}),1000)
+			});
+		}
 		</script>
 	</body>
 

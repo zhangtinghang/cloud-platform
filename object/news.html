@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="royalblue">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.header_pic{
+				width: 100%;
+				position: relative;
+			}
+			.header_pic img{
+				width: 100%;
+				height: 200px;
+			}
+			.mui-bar {
+				background-color: rgb(90,162,232);
+			}
+			a {
+				color: white;
+			}
+			.mui-bar-nav~.mui-content .mui-pull-top-pocket {
+    			top: 44px;
+			}
+			.mui-title{font-weight: 700; color: rgb(255,255,255);}
+			.mui-slider-title{text-align: center; color: white; background-color:rgba(255,255,255,0.5);margin-bottom: 8px; font-weight: 500;}
+		</style>
+	</head>
+
+	<body>
+
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">新 闻</h1>
+		</header>
+		<div class="mui-content">
+			<div class="header_pic" id="pic">	
+				<img src="../img/main/Pic_Shuffing_figure_one.png" />
+				<p class="mui-slider-title">静静看这世界</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		 <script>
+			 mui.init({
+	            subpages: [{
+	                url: 'news_child.html',  
+	                id: 'news_child.html',
+	                styles: {
+	                    top:'240px',  
+	                    bottom: '0px',
+	                }
+	            }]
+	        }); 
+    </script>  
+	</body>
+
+</html>

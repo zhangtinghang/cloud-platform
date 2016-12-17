@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="royalblue">
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<script>
+			(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        var html = document.documentElement;
+        var windowWidth = html.clientWidth;
+        html.style.fontSize = windowWidth / 1.080 + 'px';
+        // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px';
+    }, false);
+})();
+		</script>
+		<header class="mui-bar mui-bar-nav"style="background-color: rgb(90,162,232);">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"style="color: white;"></a>
+		    <h1 class="mui-title"style="color: white;">创业创新</h1>
+		</header>
+		 <img src="../img/View_design.png"style="width:0.892rem;position: relative;top: .20rem;left: 0.094rem;">
+		 <div style="position: relative;top:0.25rem;">
+		 	<p style="color: #2E2E2E; width: 100%;" id="fontContent"></p>
+		 </div>
+	</body>
+	<script>
+		mui.plusReady(function(){			
+			 var self = plus.webview.currentWebview();
+   			var pid = self.serverid;
+   			content(pid);
+		});
+		
+		function content(pid){
+			var fontcontent=document.getElementById("fontContent");
+			mui.ajax({
+				url: "http://www.xbsjzx.com/api/handler/getservicedetail",
+				type: "get",
+				data: 'pid='+pid,
+				dataType: "json",
+				timeout: 1000,
+				success: function(data) {
+					var data = JSON.stringify(data);
+					var dataobj = eval("(" + data + ")");
+				if(dataobj.issuccess){			
+					fontcontent.innerHTML=unescape(dataobj.data[0].Introduction);
+				}
+				},
+				error: function(xhr, type, errorThrown) {	
+					console.log(type + xhr);
+				}
+				});
+		}
+
+	</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		 <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="royalblue">
+	    <title></title>
+	    <script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <script src="../js/shipei.js"></script>
+	    <style>
+	    	.mui-title{
+	    		color: white;
+	    		font-size: .4rem;
+	    	}
+	    	.mui-bar {
+				background-color:rgb(90,162,232);
+			}
+	    	/*.p-yangshi{
+	    		margin: 0 auto;
+	    	}*/
+	    	.mui-content{
+	    		/*margin-top: 0.3rem;*/
+	    		margin: .3rem .2rem;
+	    	}
+	    	.mui-content img{
+	    		margin-top: .3rem;
+	    		margin-bottom: -.3rem;
+	    		display: block;
+	    		width: 100%;
+	    	}
+	    	p{
+	    		color: #000000;
+	    		text-align:center;
+	    		margin:0 auto;
+	    		font-size: .3rem;
+	    	}
+	    	.jidi{
+	    		margin-bottom: 1rem;
+	    	}
+	    	.header-nav{
+	    		background-color:rgb(90,162,232);
+	    	}
+	    	.header-bar{
+	    		color: rgb(255,255,255);
+	    	}
+	    </style>
+	</head>
+
+	<body>
+		
+		<header id="header" class="mui-bar mui-bar-nav header-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left header-bar"></a>
+			<h1 class="mui-title">平台介绍</h1>
+		</header>
+		
+		
+		<div id="ptxt" class="mui-content p-yangshi"></div>
+		<p id="di-email"></p>
+		<p id="di-iphone"></p>
+		<p id="di-name" class="jidi"></p>
+		
+		<script>
+			mui.plusReady(function () {
+			var self = plus.webview.currentWebview();
+			var pid = self.header_pid;
+			console.log('这是传递过来的pid='+pid)
+			var p = document.getElementById("ptxt");
+			var email = document.getElementById("di-email");
+			var iphone = document.getElementById("di-iphone");
+			var myname = document.getElementById("di-name");
+		
+			mui.ajax('http://www.xbsjzx.com/api/handler/getplatformdetail', {
+				dataType: 'json', //服务器返回json格式数据
+				type: 'get', //HTTP请求类型
+				data: 'pid='+ pid,
+				
+				timeout: 10000, //超时时间设置为10秒；
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				success: function(data) {
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					var data = JSON.stringify(data);
+					var dataobj = eval("(" + data + ")");
+						p.innerHTML = dataobj.data.abstract; 
+						email.innerHTML = "邮箱：" + dataobj.data.contactemail;
+						iphone.innerHTML = "电话：" + dataobj.data.contactcellphone;
+						myname.innerHTML = "联系人：" + dataobj.data.contactname;
+				},
+				error: function(xhr, type, errorThrown) {
+					//异常处理；
+					mui.toast('获取数据失败：' + type);
+					console.log(type);
+				}
+			});
+		});
+		</script>
+	</body>
+
+</html>

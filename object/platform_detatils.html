@@ -32,29 +32,15 @@
 			</div>
 		<script src="../js/mui.min.js"></script>
 		<script>
-			var catapid = "391e5fe4-6964-480c-ba01-82f7db13fa96";
+			var catapid;
 			var page = 1;
 			var list_item1 = document.getElementById("list_1");
-			mui.init({
-				pullRefresh: {
-					container: "#pullrefresh",
-					down: {
-					    auto: true,//可选,默认false.自动下拉刷新一次
-						callback: function() {
-							pulldownRefresh(catapid);
-						}
-					},
-					up: {
-						callback: function() {
-							pullupGetMore(catapid);
-						}
-					}
-				}
-			});
-
-			mui.plusReady(function() {
+		mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				console.log('初始化刷新时的pid = '+self.initpid)
+				catapid = self.initpid;
 				//添加newId自定义事件监听
-				window.addEventListener('newsId', function(event) {
+				window.addEventListener('tapId', function(event) {
 					//获得事件参数
 					catapid = event.detail.catapid;
 					//根据id向服务器请求新闻详情
@@ -62,7 +48,7 @@
 				        down: {
 					    auto: true,//可选,默认false.自动下拉刷新一次
 						callback: function() {
-							pulldownRefresh(catapid);
+							pulldownRefresh();
 						}
 					},
 					up: {
@@ -70,7 +56,7 @@
 						contentrefresh: '正在加载...',
 						contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容
 						callback: function() {
-							pullupGetMore(catapid);
+							pullupGetMore();
 						}
 					}
 				
@@ -78,15 +64,24 @@
 
 				});
 			});
+			mui.init({
+				pullRefresh: {
+					container: "#pullrefresh",
+					down: {
+					    auto: true,//可选,默认false.自动下拉刷新一次
+						callback: function() {
+							pulldownRefresh();
+						}
+					},
+					up: {
+						callback: function() {
+							pullupGetMore();
+						}
+					}
+				}
+			});
 
-			/**
-			 * 设置三个参数
-			 * page用来额外数据的页数
-			 * totalPage是存储额外的数据一共有多少页
-			 * list用来存储列表项的外部容器
-			 */
-
-			function pulldownRefresh(catapid) { //下拉刷新函数
+			function pulldownRefresh() { //下拉刷新函数
 				list_item1.innerHTML = '';
 				console.log(catapid + "下拉刷新");
 			setTimeout(function() {

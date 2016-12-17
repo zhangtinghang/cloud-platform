@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="royalblue">
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/resource.css" />
+		<style>
+			.header-nav{
+				color: rgb(255,255,255);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav" style="background:rgb(90,162,232);">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left header-nav"></a>
+		    <h1 class="mui-title"style="color: #fff;"id="header"></h1>
+		</header>
+	<div class="mui-content">
+		<div class="content"style="position: absolute;">
+			<div class="content-pic">
+				<img src="../img/Pic_Shuffing_figure_one.png"style="width: 1.080rem;">
+			</div>
+			<div style="float: left"><p style="margin-left:0.036rem ;color:#2E2E2E ;font-size:0.05rem ;">资源评分 :</p></div>
+				<div class="star-container"id="star-container">
+				<div class="star">
+					<img src="../img/Icon_start.png"style="display: ;">
+					<img class="light" src="../img/Icon_start_light.png"style="display: none;">
+				</div>
+				<div class="star">
+					<img src="../img/Icon_start.png">
+					<img src="../img/Icon_start_light.png"style="display: none;">
+				</div>
+				<div class="star">
+					<img src="../img/Icon_start.png"style="display:;">
+					<img src="../img/Icon_start_light.png"style="display: none;">
+				</div>
+				<div class="star">
+					<img src="../img/Icon_start.png"style="display: ">
+					<img src="../img/Icon_start_light.png"style="display: none;">
+				</div>
+				<div class="star">
+					<img src="../img/Icon_start.png"style="display: ">
+					<img src="../img/Icon_start_light.png"style="display: none;">
+				</div>
+				</div>
+			
+			<div class="tab">
+				<a><li class="active">资源详情</li></a>
+				
+			</div>
+			<div class="text" >
+				<div class="text-container">
+					<p style="font-size:0.05rem ;line-height:0.07rem;"id="fontContent">
+					
+					</p>
+				</div>
+			<div class="options">
+				<img src="../img/Icon_link.png">
+				<p>附件    :无附件</p>
+			</div>
+		</div>
+		<div class="font-content"></div>
+</div>
+</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+	(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        var html = document.documentElement;
+        var windowWidth = html.clientWidth;
+        html.style.fontSize = windowWidth / 1.080 + 'px';
+        // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px';
+    }, false);
+})();
+		</script>
+		<script>
+			mui.plusReady(function () {
+			var self = plus.webview.currentWebview();
+			var pid = self.select_pid;
+			console.log('这是传递过来的pid='+pid)
+			var header=document.getElementById("header");
+			var fontcontent=document.getElementById("fontContent");
+			var starNum=4;
+			var content=document.getElementById("star-container");
+			var star =content.getElementsByTagName("div");
+			mui.ajax({
+			url: "http://www.xbsjzx.com/api/handler/getresourcedetail",
+			type: "get",
+			async: true,
+			data: "pid="+pid,
+			dataType: "json",
+			timeout: 1000,
+			success: function(data) {
+				console.log(JSON.stringify(data));
+			starNum=data.data.starcount;
+			 header.innerHTML=data.data.name;
+			 fontcontent.innerHTML=data.data.description;
+			 for(var i=0;i<starNum;i++){
+				var starlight =star[i].getElementsByTagName("img");
+				starlight[0].style.display="none";
+				starlight[1].style.display="";
+			}
+			},
+			error: function(xhr, type, errorThrown) {
+			
+			}
+			});
+});
+			
+</script>
+	</body>
+
+</html>
