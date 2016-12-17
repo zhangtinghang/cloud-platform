@@ -1,0 +1,78 @@
+			.header-box {
+				width: 10rem;
+				box-sizing: border-box;
+				height: 5.759259rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_background.png);
+				padding-top:0.599999rem;
+			}
+			.mui-icon{
+				position: absolute;
+				color: rgb(255,255,255);
+				font-weight:bold;
+				font-size:0.8587rem;
+			}
+			
+			.header-bg {
+				position: absolute;
+				width: 7.444444rem;
+				height: 4.472222rem;
+				left: 1.277777rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_square_background.png);
+			}
+			
+			.header-title {
+				text-align: center;
+				color: #2e2e2e;
+				font-size: 0.455555rem;
+				font-weight: 800;
+			}
+			
+			.header-content p {
+				color: rgb(255, 255, 255);
+				font-size: 0.277777rem;
+			}
+			
+			.mui-ellipsis-2 {
+				-webkit-line-clamp: 5;
+			}
+			
+			#header_details {
+				width: 6.944444rem !important;
+				/*763px*/
+				margin-left: 0.092592rem;
+				margin-top: 0.231481rem;
+				font-size: 0.307777rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: .4rem;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0.1rem 0rem;
+				margin: 1rem 0rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				color: #000000;
+				border-color: #FFFFFF;
+			}
+			
+			.mui-segmented-control {
+				border: none;
+				margin: 0.05rem 0;
+				border-radius: 0;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 0.333333rem;
+				font-size: 0.333333rem;
+			}
+			
+			a:hover {
+				text-decoration: none !important;
+			}

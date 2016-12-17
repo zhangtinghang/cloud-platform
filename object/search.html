@@ -89,7 +89,7 @@
 		                    <span class="mui-h5">12:25</span>
 		                </div>
 		            </div>
-		        </li>-->
+		       </li>-->
 		</ul>
 	</body>
 	<script>
@@ -170,17 +170,18 @@
 						}
 					}else{
 						//请求出错时
+						mui.toast('获取数据失败：' + type);
 					}
 				},
 				error: function(xhr, type, errorThrown) {
 					//异常处理；
+					mui.toast('获取数据失败：' + type);
 					console.log(type);
 				}
 			});	
             }else{
             	
-            }
- 
+            } 
         }
     },false);	
 	</script>

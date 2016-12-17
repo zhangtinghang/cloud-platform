@@ -70,7 +70,9 @@
 			var p = document.getElementById("ptxt");
 			var Abstract = document.getElementById("di-Abstract");
 			var Description = document.getElementById("di-Description");
-
+			mui.init([
+				swipeBack:true //Boolean(默认false)启用右滑关闭功能
+			])
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
 				// 或 var self = plus.webview.getWebviewById('new');

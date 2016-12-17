@@ -62,11 +62,14 @@
 		<p id="di-name" class="jidi"></p>
 		
 		<script>
+		mui.init({
+			swipeBack:true //Boolean(默认false)启用右滑关闭功能
+		})
 			mui.plusReady(function () {
 			var self = plus.webview.currentWebview();
 			var pid = self.header_pid;
 			console.log('这是传递过来的pid='+pid)
-			var p = document.getElementById("ptxt");
+			var p_content = document.getElementById("ptxt");
 			var email = document.getElementById("di-email");
 			var iphone = document.getElementById("di-iphone");
 			var myname = document.getElementById("di-name");
@@ -84,7 +87,7 @@
 					//服务器返回响应，根据响应结果，分析是否登录成功；
 					var data = JSON.stringify(data);
 					var dataobj = eval("(" + data + ")");
-						p.innerHTML = dataobj.data.abstract; 
+						p_content.innerHTML = dataobj.data.abstract; 
 						email.innerHTML = "邮箱：" + dataobj.data.contactemail;
 						iphone.innerHTML = "电话：" + dataobj.data.contactcellphone;
 						myname.innerHTML = "联系人：" + dataobj.data.contactname;
