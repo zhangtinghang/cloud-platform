@@ -1,0 +1,77 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.star-container{
+ float: left;
+ 
+}
+.star{
+	width: 0.056rem;
+	height: 0.056rem;
+	float: left;
+}
+
+.star img{
+	position: relative;
+	top: 0;
+	width: 0.056rem;
+}
+.star .light{
+	position: relative;
+}
+.tab{
+	clear: both;
+	margin-top: 0.1rem;
+	margin-left: 0.036rem;
+	height: 0.09rem;
+}
+.tab li{
+	float: left;
+	width: 0.220rem;
+	height: 0.09rem;
+	background: silver;
+	line-height: 0.09rem;
+	font-size: 0.036rem;
+	text-align: center;
+	color: #2E2E2E;
+}
+
+.tab a .active{
+	background: deepskyblue;
+	color: #fff;
+}
+.text{
+	margin-top:0.036rem;
+	margin-left: 0.036rem;
+	height: .876rem;
+	width: 1.006rem;
+	border: solid silver;
+	border-width:1px ;
+	word-wrap: break-word;
+	
+}
+.text .text-container{
+	margin-top: 0.036rem;
+	margin-left: 0.036rem;
+	height: 0.75rem;
+	overflow: auto;
+}
+.text.options{
+	height: 0.01rem;
+	background: salmon;
+	margin-left: 0.7rem;
+	
+}
+.text .options img{
+	width: 0.056rem;
+	position: absolute;
+	left: 0.7rem;
+	
+}
+.options p{
+	position: absolute;
+	left: 0.75rem;
+	font-size: 0.05rem;
+}

@@ -1,9 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<script type="text/javascript" src="../js/zoom/flexible.js"></script>
+		<script type="text/javascript" src="../js/zoom/flexible_css.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.header-box {
+				width: 10rem;
+				box-sizing: border-box;
+				height: 5.759259rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_background.png);
+			}
+			
+			.header-bg {
+				position: absolute;
+				width: 7.444444rem;
+				height: 4.472222rem;
+				left: 1.277777rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_square_background.png);
+			}
+			
+			.header-title {
+				text-align: center;
+				color: #2e2e2e;
+				font-size: 0.333333rem;
+				font-weight: 800;
+			}
+			
+			.header-content p {
+				color: rgb(255, 255, 255);
+				font-size: 0.277777rem;
+			}
+			
+			.mui-ellipsis-2 {
+				-webkit-line-clamp: 6;
+			}
+			
+			#header_details {
+				width: 6.944444rem !important;
+				/*763px*/
+				margin-left: 0.092592rem;
+				margin-top: 0.231481rem;
+				font-size: 0.277777rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: .4rem;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0.1rem 0rem;
+				margin: 1rem 0rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				color: #000000;
+				border-color: #FFFFFF;
+			}
+			
+			.mui-segmented-control {
+				border: none;
+				margin: 0.05rem 0;
+				border-radius: 0;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 0.333333rem;
+				font-size: 0.333333rem;
+			}
+			
+			a:hover {
+				text-decoration: none !important;
+			}
+		</style>
 	</head>
+
 	<body>
+		<header class="header-box" id="header_box">
+			<span class="mui-action-back mui-icon mui-icon-arrowleft"></span>
+			<div class="header-bg">
+				<div class="header-title">成果对接与转化服务平台</div>
+				<div class="header-content">
+					<p id="header_details" class="mui-ellipsis-2">成都生物与医药产业孵化园有限公司于2004年成立，主要负责天河孵化器日常运营管理、在孵企业科技孵化及技术服务，拥有一支专业性强、管理水平高的近百人专业孵化团队，积累了丰富的行业资源和生物医药孵化经验，能为在孵企业提供包括投融资、法律、技术咨询、人力资源、项目申报、工商注册、营销策划等全方位服务。负责运营的天河孵化器经过十五的孵化发展，已成为全国首家民营的规模最大的生物医药专业孵化器，占地81亩，拥有孵化面积约50000平米，其中孵化场地约45000平米、公共服务（实验）场地约5000平米，能够承载150-200家中小微企业，同时配备了先进的智能化系统和服务设施，为生物医药中小企业提供良好的创业配套条件。截止目前，天河孵化器累计引进企业400余家，累计毕业企业130余家，其中上市公司3家，在孵企业168家，从业人员3000余人，累计产值超过200亿元，在孵企业研发投入4000余万元，获得知识产权授权近百余个。</p>
+				</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="segmentedControl" class="mui-segmented-control">
+				<a class="mui-control-item mui-active" href="javascript:;">
+						成果转化与</br>对接服务
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						工业设计产业</br>研究
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						特色数据库
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						技术咨询与</br>培训
+					</a>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+		window.onload = function(){
+			var segmentedControlHeight = document.getElementById('segmentedControl').offsetHeight;
+			var headerHeight = document.getElementById("header_box").offsetHeight;
+			var a = 1;
+			var topHeight = segmentedControlHeight+a + headerHeight +'px';	
+			var initpid = "9d712f19-f91b-4ee2-b677-8efe5caed677";
+			//传递点击事件参数
+			requstTap();
+			/*初始化*/
+			mui.init({
+				subpages: [{
+						url: 'platform_detatils.html', //子页面HTML地址，支持本地地址和网络地址
+						id: 'platform_detatils.html', //子页面标志
+						styles: {
+							top:topHeight, //子页面顶部位置
+							bottom: 0, //子页面底部位置
+						},
+						extras:{
+						initpid : initpid
+						}
+					}],			
+				swipeBack:true //Boolean(默认false)启用右滑关闭功能
+			});		
+		
+			//header content点击事件
+ 			headTap();
+	}
+
+		
+			
+			function headTap(){
+				var header_pid = '35C2DF37-CCAC-48A9-894B-0086B51E56F5';
+				var header_details =document.getElementById("header_details");
+				var detailPage = null;
+				header_details.addEventListener('tap', function(){
+					setTimeout(function() {
+                        var page = mui.preload({
+                            url: "header_detatils.html",
+                            id: "header_detatils.html",
+                        });
+                    }, 0.001);
+                    
+					mui.openWindow({
+						url:'header_detatils.html',
+   						id:'header_detatils.html',
+   						extras:{
+     						header_pid:header_pid
+    					}
+					});
+				});
+			}
+
+			//传递点击事件参数
+			function requstTap(){
+				var btn_index = 0;
+				var segmentedControl = document.getElementById('segmentedControl');
+				a_list = segmentedControl.getElementsByTagName('a');
+				for(var i = 0; i < a_list.length; i++) {
+					a_list[i].index = i;
+					a_list[i].addEventListener('tap', function(e) {
+						if(btn_index == this.index)
+						{
+							return
+						}else{
+						var pid = ["9d712f19-f91b-4ee2-b677-8efe5caed677", "1183edd7-799e-4c3c-99cd-4e86af86889b","5c178fe2-c698-482d-8bab-c7789f4fe128","82183998-cc8a-4584-9d20-5e54f1984975"];
+						var catapid = pid[this.index];
+						var detailPage = plus.webview.getWebviewById('platform_detatils.html');
+							mui.fire(detailPage, 'tapId', {
+							catapid: catapid
+						});					
+						btn_index = this.index;
+						}
+					});
+				}
+			}
+			
+		</script>
 	</body>
+
 </html>

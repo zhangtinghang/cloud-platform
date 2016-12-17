@@ -1,9 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<script type="text/javascript" src="../js/zoom/flexible.js"></script>
+		<script type="text/javascript" src="../js/zoom/flexible_css.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.header-box {
+				width: 10rem;
+				box-sizing: border-box;
+				height: 5.759259rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_background.png);
+			}
+			
+			.header-bg {
+				position: absolute;
+				width: 7.444444rem;
+				height: 4.472222rem;
+				left: 1.277777rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_square_background.png);
+			}
+			
+			.header-title {
+				text-align: center;
+				color: #2e2e2e;
+				font-size: 0.333333rem;
+				font-weight: 800;
+			}
+			
+			.header-content p {
+				color: rgb(255, 255, 255);
+				font-size: 0.277777rem;
+			}
+			
+			.mui-ellipsis-2 {
+				-webkit-line-clamp: 6;
+			}
+			
+			#header_details {
+				width: 6.944444rem !important;
+				/*763px*/
+				margin-left: 0.092592rem;
+				margin-top: 0.231481rem;
+				font-size: 0.277777rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: .4rem;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0.1rem 0rem;
+				margin: 1rem 0rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				color: #000000;
+				border-color: #FFFFFF;
+			}
+			
+			.mui-segmented-control {
+				border: none;
+				margin: 0.05rem 0;
+				border-radius: 0;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 0.333333rem;
+				font-size: 0.333333rem;
+			}
+			
+			a:hover {
+				text-decoration: none !important;
+			}
+		</style>
 	</head>
+
 	<body>
+		<header class="header-box" id="header_box">
+			<span class="mui-action-back mui-icon mui-icon-arrowleft"></span>
+			<div class="header-bg">
+				<div class="header-title">纺织材料研发平台</div>
+				<div class="header-content">
+					<a href="javascript:;"><p id="header_details" class="mui-ellipsis-2">成都市食品药品检验研究院前身为成都市药品检验所，成立于1960年。2006年7月至2007年1月，在市政府的主导下，先后整合了卫生涉及食品检测职能及农委涉及农产品的检验检测职能及人员、设备，设立成都市食品药品检测中心；2014年按照成都市编办文件（成机编〔2014〕27号）要求，在成都市食品药品检测中心基础上，整合成都市产品质量监督检验院食品相关职能及人员编制，设立的综合性食品药品检验研究机构，加挂成都市药品检验所、成都市农业质量监测中心、成都市种子质量监测站、成都市医疗器械及药品包装材料检验所牌子。成都市食品药品检验研究院在全国机构整合中最彻底、最成功，实现了食品“从农田到餐桌”、药品从生产到使用全链条统一检测工作格局；实现了与饮食用药安全相关的所有检验检测业务统一到一个机构的工作格局；将成都范围内所有检测机构集中，区（市）县不再设立检测机构，一个机构服务全市21个区（市）县监管工作需求。人员编制295人，现有在职职工353人，高级职称74人（其中正高级职称11人），博士6人，硕士96人，拥有国家级专家9人，省级专家31人（其中四川省有突出贡献的优秀专家1人，2人为四川省科技与学术带头人后备人选）。我院作为检验与研究职能并存的综合性食品药品检验研究机构，是四川省博士后创新实践工作基地。为全国17家口岸所之一，是全川唯一一家口岸所，承担经成都口岸进口药品的通关检验、注册检验和香港中成药注册检验；是国家卫计委、质检总局、农业部认定的首批食品复检机构；国家食药总局认定的国家本级食品安全抽检监测承检机构；“全国副省级城市食品药品检测机构技术协作联盟”理事长单位、“国家食品农产品检测联盟”副理事长单位。</p></a>
+				</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="segmentedControl" class="mui-segmented-control">
+				<a class="mui-control-item mui-active" href="javascript:;">
+						产品质量检测</br>服务
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						新材料新工艺新助剂</br>研发服务
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						行业信息</br>服务
+					</a>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+		window.onload = function(){
+			var segmentedControlHeight = document.getElementById('segmentedControl').offsetHeight;
+			var headerHeight = document.getElementById("header_box").offsetHeight;
+			var a = 1;
+			var topHeight = segmentedControlHeight+a + headerHeight +'px';	
+			var initpid = "a0cc6634-8ba7-4025-8463-2cce6c2d96d9";
+			//传递点击事件参数
+			requstTap();
+			/*初始化*/
+			mui.init({
+				subpages: [{
+						url: 'platform_detatils.html', //子页面HTML地址，支持本地地址和网络地址
+						id: 'platform_detatils.html', //子页面标志
+						styles: {
+							top:topHeight, //子页面顶部位置
+							bottom: 0, //子页面底部位置
+						},
+						extras:{
+						initpid : initpid
+						}
+					}],			
+				swipeBack:true //Boolean(默认false)启用右滑关闭功能
+			});		
+		
+			//header content点击事件
+ 			headTap();
+	}
+
+		
+			
+			function headTap(){
+				var header_pid = '1201CCDE-CC0B-46B8-A7F2-02191BFDCF65';
+				var header_details =document.getElementById("header_details");
+				var detailPage = null;
+				header_details.addEventListener('tap', function(){
+					setTimeout(function() {
+                        var page = mui.preload({
+                            url: "header_detatils.html",
+                            id: "header_detatils.html",
+                        });
+                    }, 0.001);
+                    
+					mui.openWindow({
+						url:'header_detatils.html',
+   						id:'header_detatils.html',
+   						extras:{
+     						header_pid:header_pid
+    					}
+					});
+				});
+			}
+
+			//传递点击事件参数
+			function requstTap(){
+				var btn_index = 0;
+				var segmentedControl = document.getElementById('segmentedControl');
+				a_list = segmentedControl.getElementsByTagName('a');
+				for(var i = 0; i < a_list.length; i++) {
+					a_list[i].index = i;
+					a_list[i].addEventListener('tap', function(e) {
+						if(btn_index == this.index)
+						{
+							return
+						}else{
+						var pid = ["a0cc6634-8ba7-4025-8463-2cce6c2d96d9", "8a7e65f0-17fd-48d2-be66-3314dd7833f5","11d5f85e-d9ad-4fe3-a876-7396b462a92a"];
+						var catapid = pid[this.index];
+						var detailPage = plus.webview.getWebviewById('platform_detatils.html');
+							mui.fire(detailPage, 'tapId', {
+							catapid: catapid
+						});					
+						btn_index = this.index;
+						}
+					});
+				}
+			}
+			
+		</script>
 	</body>
+
 </html>

@@ -19,7 +19,7 @@
 				clear: both;
 			}
 			.mui-bar{
-				height:0.925925rem;
+				height:1.05925rem;
 				position: relative;
 				background-color: rgb(90,162,232);
 			}
@@ -27,15 +27,40 @@
 				position: absolute;
 				font-size: 0.5rem;
 				color: rgba(255,255,255,1);
-				top:0.092592rem;
+				top:0.262962rem;
 			}
 			.bar-search{
 				width: 5.037037rem !important;
+				height:1.05925rem;
 				margin:auto;
 			}
+			.search-pic{
+				position: absolute;
+				width:0.459999rem;
+				top: 0.284332rem;
+				left: 50%;
+				margin-left: -2.2687rem;
+			}
+			#search-input{
+				margin: 0;
+				margin:0.105592rem;
+				border: none;
+				border-radius:30px;
+				color: rgb(255,255,255);
+				background:rgb(166,205,243);
+			}
+			input[type=search] {
+			    text-align:left;
+			    padding: 0 0.785rem;
+			    margin: 0 auto
+			}
+			::-webkit-input-placeholder {
+				color: rgb(255,255,255);
+			}
+			
 			.bar-pic{
 				position: absolute;
-				top: 0.092592rem;
+				top: 0.292592rem;
 				right: 0.87037rem;
 				width:0.481481rem;
 				height:0.453703rem;
@@ -213,7 +238,7 @@
 				background-repeat: no-repeat;
 				background-image:url(../img/main/Icon_auto_service.png);
 			}
-			
+
 			.platform-box2{
 				height: 3.148148rem;
 				position: relative;
@@ -422,7 +447,9 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<p class="bar-text">首页</p>
-			<div class="bar-search"><input type="search" placeholder="搜索" lang="zh-CN"></div>
+			<div class="bar-search" id="search_box">
+				<img class="search-pic" src="../img/NaviBar_Icon_search.png" />
+				<input autofocus="autofocus" id="search-input" type="search" class="mui-input-clear mui-focusin" placeholder="搜索"></div>
 			<div class="bar-pic"></div>
 		</header>
 		
@@ -488,48 +515,48 @@
 				<p>整合科技资源，提升创新能力</p>
 			</div>
 		<div class="platform-box">
-			<div class="platform-box1">
+			<div class="platform-box1">				
 				<div class="box1-item1 btn_platform">
 					<div class="box1-item1-pic"></div>
-					<div class="box1-item1-text">信息交互产品开发</br>服务平台</div>
+					<div class="box1-item1-text">信息交互产品开发</br>服务平台</div>					
 				</div>
-				<div class="box1-item2 btn_platform">
+				<div class="box1-item2 btn_platform">					
 					<div class="box1-item2-pic"></div>
-					<div class="box1-item-text">产品设计创新</br>研发体系平台</div>
+					<div class="box1-item-text">产品设计创新</br>研发体系平台</div>					
 				</div>
-				<div class="box1-item3 btn_platform">
+				<div class="box1-item3 btn_platform">					
 					<div class="box1-item3-pic"></div>
-					<div class="box1-item-text">成果对接与转</br>化服务平台</div>
+					<div class="box1-item-text">成果对接与转</br>化服务平台</div>					
 				</div>
-				<div class="box1-item4 btn_platform">
+				<div class="box1-item4 btn_platform">					
 					<div class="box1-item4-pic"></div>
-					<div class="box1-item-text">工业设计基本</br>平台</div>
+					<div class="box1-item-text">工业设计基本</br>平台</div>					
 				</div>
-				<div class="box1-item5 btn_platform">
+				<div class="box1-item5 btn_platform">					
 					<div class="box1-item5-pic"></div>
-					<div class="box1-item5-text">自动服务终端</br>的研究与应用</br>平台</div>
+					<div class="box1-item5-text">自动服务终端</br>的研究与应用</br>平台</div>					
 				</div>	
 			</div>
-			<div class="platform-box2 btn_platform">
-				<div class="box2-item1">
+			<div class="platform-box2">
+				<div class="box2-item1 btn_platform">					
 					<div class="box2-item1-pic"></div>
-					<div class="box1-item1-text">对外交流</br>合作平台</div>
+					<div class="box1-item1-text">对外交流</br>合作平台</div>					
 				</div>
-				<div class="box2-item2 btn_platform">
+				<div class="box2-item2 btn_platform">					
 					<div class="box2-item2-pic"></div>
-					<div class="box1-item-text">景观及室内设</br>计服务平台</div>
+					<div class="box1-item-text">景观及室内设</br>计服务平台</div>					
 				</div>
-				<div class="box2-item3 btn_platform">
+				<div class="box2-item3 btn_platform">					
 					<div class="box2-item3-pic"></div>
-					<div class="box1-item-text">知识产品法律</br>服务平台</div>
+					<div class="box1-item-text">知识产品法律</br>服务平台</div>					
 				</div>
-				<div class="box2-item4 btn_platform">
+				<div class="box2-item4 btn_platform">					
 					<div class="box2-item4-pic"></div>
-					<div class="box1-item-text">纺织材料及研</br>发平台</div>
+					<div class="box1-item-text">纺织材料及研</br>发平台</div>					
 				</div>
-				<div class="box2-item5 btn_platform">
+				<div class="box2-item5 btn_platform">					
 					<div class="box2-item5-pic"></div>
-					<div class="box1-item-text">加工技术信息</br>平台</div>
+					<div class="box1-item-text">加工技术信息</br>平台</div>					
 				</div>		
 			</div>			
 			</div>
@@ -551,11 +578,11 @@
 				</div>
 				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_hatch.png" />
-					<p>创业创新</p>
+					<p>创业孵化</p>
 				</div>
 				<div class="server-box-item server_btn">
 					<img src="../img/main/Icon_transfer.png" />
-					<p>创业创新</p>
+					<p>技术转移</p>
 				</div>
 			</div>
 			<div class="server-box2">
@@ -588,13 +615,12 @@
 		<script type="text/javascript">
 		mui.init({
 			preloadPages:[
-			    {
-			      url:'server_detatils.html',
-			      id:'server_detatils.html'
-			    },
-			    {
-			    	 url:'feedback.html',
+			   {
+			    	url:'feedback.html',
 				    id:'feedback.html'
+			    },{
+			    	url:'search.html',
+			    	id:'search.html'
 			    }
   			]
 		});
@@ -602,26 +628,41 @@
 			platformBtn();
 			serverBtn();
 			navBtn();
-		});	
+		});
 			var slider = mui("#slider");	
 				slider.slider({
 					interval: 2000
 				});
+				searchInput();
 		/*关闭首页加载页面*/
 		
 		/*拨打电话*/
 		
 		/*搜索框点击跳转*/
-		
+		function searchInput(){
+			var search_box = document.getElementById('search_box');
+			var search_input  =document.getElementById('search-input');
+			search_box.addEventListener('tap',function(){
+					mui.openWindow({
+					url:'search.html',
+					id:'search.html'
+				})
+				});
+			search_input.addEventListener('tap', function(){
+				mui.openWindow({
+					url:'search.html',
+					id:'search.html'
+				})
+			});
+		}
 		/*十大平台点击*/
 		function platformBtn(){
 			var btn_platform = document.getElementsByClassName('btn_platform');
-			pages = ['information_platform.html','productDesign_platform.html','','','','','','','','']
+			pages = ['information_platform.html','productDesign_platform.html','ResultsDocking_platform.html','IndustrialDesign_platform.html','AutomaticServer_platform.html','cooperation_platform.html','landscapeDesign_platform.html','Knowledge_platform.html','TextileMaterial_platform.html','ProcessingTechnology_platform.html']
 			for(var i = 0; i<btn_platform.length;i++){
 				btn_platform[i].index = i;
 					btn_platform[i].addEventListener('tap', function() {
 					//打开详情页页面
-					console.log('点击了')
 				setTimeout(mui.openWindow({
 					url:pages[this.index],
 					waiting:{

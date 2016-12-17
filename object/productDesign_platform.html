@@ -89,29 +89,23 @@
 		<header class="header-box" id="header_box">
 			<span class="mui-action-back mui-icon mui-icon-arrowleft"></span>
 			<div class="header-bg">
-				<div class="header-title">信息交互产品开发服务平台</div>
+				<div class="header-title">产品设计创新研发设计体系平台</div>
 				<div class="header-content">
-					<p id="header_details" class="mui-ellipsis-2">中国地质调查局成都地质调查中心(成都地质矿产研究所)是国土资源部的专业地质调查研究机构，直属中国地质调查局领导。履行中国地质调查局赋予的管理、协调与监督西南地区地质调查工作，收集与管理西南地区地质调查信息资料等职能；承担全国或区域的公益性、基础性重大科技攻关项目，开展大区综合地质调查研究工作，解决区域性国土资源调查、规划和长远发展需要的重大地球科学技术问题。</p>
+					<p id="header_details" class="mui-ellipsis-2">四川蜀水生态环境建设有限责任公司成立于2003年9月，公司主要从事生产建设项目水土保持方案编制，小流域治理、规划、设计，小型水利工程的设计，水土保持监理，水土保持监测，水土保持设施技术评估等工作。公司拥有水利部颁发的《水土保持工程施工监理》甲级资质、《水利工程施工监理》丙级资质、中国水土保持学会颁发的《水土保持方案编制》乙级资质、《水土保持监测水平评价》乙级资质、四川省咨询业协会颁发的《四川省科协咨询》甲级资质等所有的水土保持行业相关资质证书。涉及项目类型包括：铁路、公路、机场、水电、天然气等有关基础设施建设，以及矿产资源开发、城镇建设、公共服务设施建设、旅游开发、水利水电开发、经济开发区建设、房产开发等。</p></a>
 				</div>
 			</div>
 		</header>
 		<div class="mui-content">
 			<div id="segmentedControl" class="mui-segmented-control">
-				<a class="mui-control-item mui-active" href="#javascript:;">
-					UED理论
-				</a>
-				<a class="mui-control-item" href="#javascript:;">
-					业界咨询
-				</a>
-				<a class="mui-control-item" href="#javascript:;">
-					交互智库
-				</a>
-				<a class="mui-control-item" href="#javascript:;">
-					创新设计</br>素材
-				</a>
-				<a class="mui-control-item" href="#javascript:;">
-					落地案例</br>展示
-				</a>
+				<a class="mui-control-item mui-active" href="javascript:;">
+						产品创意设计</br>研发
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						创新设计</br>服务
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						模型制作</br>中心
+					</a>
 			</div>
 		</div>
 
@@ -122,7 +116,7 @@
 			var headerHeight = document.getElementById("header_box").offsetHeight;
 			var a = 1;
 			var topHeight = segmentedControlHeight+a + headerHeight +'px';	
-			var initpid = "391e5fe4-6964-480c-ba01-82f7db13fa96";
+			var initpid = "edf451c8-e710-40af-bdf0-4e6088315bde";
 			//传递点击事件参数
 			requstTap();
 			/*初始化*/
@@ -134,10 +128,10 @@
 							top:topHeight, //子页面顶部位置
 							bottom: 0, //子页面底部位置
 						},
-					}],
-					extras:{
+						extras:{
 						initpid : initpid
-					},//额外扩展参数
+						}
+					}],			
 				swipeBack:true //Boolean(默认false)启用右滑关闭功能
 			});		
 		
@@ -148,7 +142,7 @@
 		
 			
 			function headTap(){
-				var header_pid = '949FDDEC-2322-4143-BF52-0003DA493331';
+				var header_pid = 'DC401A4B-E28C-4F89-BF2D-002B0DE53667';
 				var header_details =document.getElementById("header_details");
 				var detailPage = null;
 				header_details.addEventListener('tap', function(){
@@ -181,7 +175,7 @@
 						{
 							return
 						}else{
-						var pid = ["391e5fe4-6964-480c-ba01-82f7db13fa96", "008d9b22-3e5b-45ae-b3b0-7838bfa70998", "2938c1c8-508a-4311-8beb-eb1aa2606069", "46cfb23d-f160-4569-b1e6-e2d4a10ec56e", "764b149b-a61b-40b3-a66c-86fe38b16959"];
+						var pid = ["edf451c8-e710-40af-bdf0-4e6088315bde", "06cec7aa-e3a3-4ce7-a5d5-ffe6a5779a3c","56ccb59d-6f6f-4e0c-b652-27f5c92e9eb6"];
 						var catapid = pid[this.index];
 						var detailPage = plus.webview.getWebviewById('platform_detatils.html');
 							mui.fire(detailPage, 'tapId', {

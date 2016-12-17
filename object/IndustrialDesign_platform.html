@@ -1,9 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<script type="text/javascript" src="../js/zoom/flexible.js"></script>
+		<script type="text/javascript" src="../js/zoom/flexible_css.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.header-box {
+				width: 10rem;
+				box-sizing: border-box;
+				height: 5.759259rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_background.png);
+			}
+			
+			.header-bg {
+				position: absolute;
+				width: 7.444444rem;
+				height: 4.472222rem;
+				left: 1.277777rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-image: url(../img/platform/View_square_background.png);
+			}
+			
+			.header-title {
+				text-align: center;
+				color: #2e2e2e;
+				font-size: 0.333333rem;
+				font-weight: 800;
+			}
+			
+			.header-content p {
+				color: rgb(255, 255, 255);
+				font-size: 0.277777rem;
+			}
+			
+			.mui-ellipsis-2 {
+				-webkit-line-clamp: 6;
+			}
+			
+			#header_details {
+				width: 6.944444rem !important;
+				/*763px*/
+				margin-left: 0.092592rem;
+				margin-top: 0.231481rem;
+				font-size: 0.277777rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: .4rem;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+				padding: 0.1rem 0rem;
+				margin: 1rem 0rem;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				color: #000000;
+				border-color: #FFFFFF;
+			}
+			
+			.mui-segmented-control {
+				border: none;
+				margin: 0.05rem 0;
+				border-radius: 0;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				line-height: 0.333333rem;
+				font-size: 0.333333rem;
+			}
+			
+			a:hover {
+				text-decoration: none !important;
+			}
+		</style>
 	</head>
+
 	<body>
+		<header class="header-box" id="header_box">
+			<span class="mui-action-back mui-icon mui-icon-arrowleft"></span>
+			<div class="header-bg">
+				<div class="header-title">工业设计基本知识平台</div>
+				<div class="header-content">
+					<p id="header_details" class="mui-ellipsis-2">中国地质调查局成都地质调查中心(成都地质矿产研究所)是国土资源部的专业地质调查研究机构，直属中国地质调查局领导。履行中国地质调查局赋予的管理、协调与监督西南地区地质调查工作，收集与管理西南地区地质调查信息资料等职能；承担全国或区域的公益性、基础性重大科技攻关项目，开展大区综合地质调查研究工作，解决区域性国土资源调查、规划和长远发展需要的重大地球科学技术问题。</p>
+				</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="segmentedControl" class="mui-segmented-control">
+				<a class="mui-control-item mui-active" href="javascript:;">
+						基础知识</br>视频
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						设计案例
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						院校课件</br>资源
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						设计论述
+					</a>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+		window.onload = function(){
+			var segmentedControlHeight = document.getElementById('segmentedControl').offsetHeight;
+			var headerHeight = document.getElementById("header_box").offsetHeight;
+			var a = 1;
+			var topHeight = segmentedControlHeight+a + headerHeight +'px';	
+			var initpid = "eeb55d7c-4f19-48f8-8f95-c2f2a56e967a";
+			//传递点击事件参数
+			requstTap();
+			/*初始化*/
+			mui.init({
+				subpages: [{
+						url: 'platform_detatils.html', //子页面HTML地址，支持本地地址和网络地址
+						id: 'platform_detatils.html', //子页面标志
+						styles: {
+							top:topHeight, //子页面顶部位置
+							bottom: 0, //子页面底部位置
+						},
+						extras:{
+						initpid : initpid
+						}
+					}],			
+				swipeBack:true //Boolean(默认false)启用右滑关闭功能
+			});		
+		
+			//header content点击事件
+ 			headTap();
+	}
+
+		
+			
+			function headTap(){
+				var header_pid = '1D9588BB-BE5F-429E-B74F-00928FFBB8A8';
+				var header_details =document.getElementById("header_details");
+				var detailPage = null;
+				header_details.addEventListener('tap', function(){
+					setTimeout(function() {
+                        var page = mui.preload({
+                            url: "header_detatils.html",
+                            id: "header_detatils.html",
+                        });
+                    }, 0.001);
+                    
+					mui.openWindow({
+						url:'header_detatils.html',
+   						id:'header_detatils.html',
+   						extras:{
+     						header_pid:header_pid
+    					}
+					});
+				});
+			}
+
+			//传递点击事件参数
+			function requstTap(){
+				var btn_index = 0;
+				var segmentedControl = document.getElementById('segmentedControl');
+				a_list = segmentedControl.getElementsByTagName('a');
+				for(var i = 0; i < a_list.length; i++) {
+					a_list[i].index = i;
+					a_list[i].addEventListener('tap', function(e) {
+						if(btn_index == this.index)
+						{
+							return
+						}else{
+						var pid = ["eeb55d7c-4f19-48f8-8f95-c2f2a56e967a", "f27f4bfc-002a-4036-b80f-6456a0a8a9bd","88d44c24-038d-460d-b235-0e5f10c7480c","10cf2111-478d-4f33-8f36-e55dad914665"];
+						var catapid = pid[this.index];
+						var detailPage = plus.webview.getWebviewById('platform_detatils.html');
+							mui.fire(detailPage, 'tapId', {
+							catapid: catapid
+						});					
+						btn_index = this.index;
+						}
+					});
+				}
+			}
+			
+		</script>
 	</body>
+
 </html>
